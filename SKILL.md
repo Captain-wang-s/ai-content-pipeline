@@ -1,11 +1,13 @@
 ---
 name: ai-content-pipeline
-description: 一条从选题到微信公众号草稿箱的全自动内容生产线。当需要"写一篇公众号文章并推送草稿箱""生成文章配图/脑图""批量发布内容"时，按本 Skill 的 workflow 执行。
-version: 1.0.0
+description: 公众号「船长Talk」专用内容生产线——从选题到微信公众号草稿箱的全自动流水线。当需要"写一篇公众号文章并推送草稿箱""生成文章配图/脑图""批量发布内容"时，按本 Skill 的 workflow 执行。
+version: 1.0.1
 entry: scripts/publish_3hotspot_single_draft.py
 ---
 
-# AI Content Pipeline Skill
+# AI Content Pipeline Skill（公众号：船长Talk）
+
+> 本仓库为个人公众号「**船长Talk**」（专注职场、投资、AI）的内容基建项目。
 
 ## 何时使用本 Skill
 
