@@ -1,0 +1,21 @@
+{
+  "date": "20261103",
+  "batch": "test",
+  "sop_version": "v9.0",
+  "articles": [
+    {
+      "id": "sample_本机联调",
+      "file": "article_sample.html",
+      "title": "【本机联调测试】2026福布斯AI50：两巨头占80%融资，普通人该用哪个？",
+      "digest": "ai-content-pipeline 本地跑通验证：gen_mindmap 生成脑图 → html2png 截图 → publish 一键推草稿箱。此草稿仅用于测试，可删除。",
+      "theme": "blue",
+      "theme_color": "#4776e6",
+      "mindmap": "mindmaps/mindmap_sample_run.png",
+      "cover": "examples/cover_sample.png",
+      "cover_main": "AI50榜单",
+      "cover_sub": "本机联调测试",
+      "quote": "examples/quote_sample.png",
+      "quote_author": "——船长"
+    }
+  ]
+}

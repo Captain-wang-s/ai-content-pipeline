@@ -19,6 +19,16 @@ import argparse
 
 from playwright.sync_api import sync_playwright
 
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+def resolve_path(p):
+    """相对路径优先按 cwd 解析，不存在时回退到项目根目录（与 gen_mindmap 行为一致）。"""
+    if os.path.isabs(p) or os.path.exists(p):
+        return p
+    cand = os.path.join(BASE, p)
+    return cand if os.path.exists(cand) else p
+
 
 def convert_one(pw, html_path, png_path, width=900, height=1200):
     html_path = os.path.abspath(html_path)
@@ -54,8 +64,8 @@ def main():
 
     files = []
     for pattern in args.inputs:
-        matched = sorted(glob.glob(pattern))
-        files.extend(matched if matched else [pattern])
+        matched = sorted(glob.glob(pattern)) or sorted(glob.glob(resolve_path(pattern)))
+        files.extend(matched if matched else [resolve_path(pattern)])
 
     if args.out and len(files) > 1:
         print("❌ 批量模式不支持 -o，请逐个指定或省略（默认同名 .png）")

@@ -178,6 +178,7 @@ if not access_token:
 # 2. 上传END尾部图（所有文章共用；图缺失时优雅跳过，不阻断发布）
 END_IMAGE = "assets/end_image.png"
 end_media_id = None
+end_url = ''
 print(f"📤 上传END尾部图...")
 end_image_path = f'{BASE}/{END_IMAGE}'
 if not os.path.exists(end_image_path):
@@ -361,7 +362,8 @@ for i, article_config in enumerate(ARTICLES, 1):
     else:
         related_html = generate_related_html(article_config['title'], article_config.get('digest', ''))
 
-    # 追加往期推荐 + 品牌信息 + END图
+    # 追加往期推荐 + 品牌信息 + END图（END图缺失时自动省略该行）
+    end_html = f'\n<p style="text-align: center; margin: 15px 0;"><img src="{end_url}" /></p>' if end_url else ''
     tail_html = f'''{related_html}
 <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 25px 0;" />
 
@@ -369,9 +371,8 @@ for i, article_config in enumerate(ARTICLES, 1):
 
 <p style="text-align: center; color: #999; font-size: 13px; margin: 5px 0 5px 0;">数据分析 + 职场真相 + 投资洞察</p>
 
-<p style="text-align: center; color: #999; font-size: 13px; margin: 5px 0 15px 0;">欢迎公众号后台回复"进群"一起交流<br>一起进步</p>
-
-<p style="text-align: center; margin: 15px 0;"><img src="{end_url}" /></p>'''
+<p style="text-align: center; color: #999; font-size: 13px; margin: 5px 0 15px 0;">欢迎公众号后台回复"进群"一起交流<br>一起进步</p>{end_html}
+'''
 
     article_content += tail_html
 
