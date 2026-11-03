@@ -337,22 +337,32 @@ def gen_mindmap(article_path, keypoints=None):
                                 break
         branches[idx] = (title, cls, fixed_items)
 
-    # 全局去重：确保 6×3=18 个 item 各不相同（之前绿/青分支常重复红分支内容）
-    all_items_flat = []
-    for _t, _c, its in branches:
-        all_items_flat.extend(its)
+    # 全局去重：重复 item 用真实句子替换；实在找不到真实内容就丢弃该条。
+    # ⚠️ 禁止生成 "→ 分支标题" 式假占位（p20261103 联调踩坑：同一分支出现两条
+    #    "→ 🚩 一句话总结"，兜底填充被去重逻辑反复命中，占位文案直接暴露给读者）。
     seen = set()
-    for i, it in enumerate(all_items_flat):
-        if it in seen:
-            br_idx = i // 3
-            item_idx = i % 3
-            b_title, b_cls, b_items = branches[br_idx]
-            alt = f"→ {b_title[:12]}"
-            new_items = list(b_items)
-            new_items[item_idx] = alt
-            branches[br_idx] = (b_title, b_cls, new_items)
-        else:
-            seen.add(it)
+    for bi, (b_title, b_cls, b_items) in enumerate(branches):
+        new_items = []
+        for it in b_items:
+            if it not in seen:
+                seen.add(it)
+                new_items.append(it)
+                continue
+            # 重复 → 先从 leftover 找未用过的真实句子
+            cand = next((c for c in leftover if c not in seen and not is_boilerplate_item(c)), None)
+            if cand:
+                leftover.remove(cand)
+                seen.add(cand)
+                new_items.append(cand)
+            # 再从其他分支借未出现过的真实句子
+            else:
+                pool = [o for _t, _c, oits in branches for o in oits
+                        if o not in seen and not is_boilerplate_item(o)]
+                if pool:
+                    seen.add(pool[0])
+                    new_items.append(pool[0])
+                # 找不到真内容 → 直接丢弃该条（分支可少于3点，绝不放假要点）
+        branches[bi] = (b_title, b_cls, new_items)
 
     # 文档标题
     m = re.search(r"<title>(.*?)</title>", html)
