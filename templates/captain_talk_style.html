@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}} | 船长Talk</title>
+    <style>
+        /* 船长Talk经典排版风格 */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            font-size: 16px;
+            line-height: 1.75;
+            color: #1a1a1a;
+            background-color: #fff;
+            margin: 0;
+            padding: 20px 16px;
+            max-width: 100%;
+            word-wrap: break-word;
+        }
+        
+        /* 主标题 - 居中加粗 */
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin: 0 0 25px 0;
+            text-align: center;
+            color: #000;
+            padding-bottom: 15px;
+        }
+        
+        /* 二级标题 - 加粗左对齐 */
+        h2 {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.6;
+            margin: 30px 0 15px 0;
+            color: #000;
+        }
+        
+        /* 三级标题 */
+        h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin: 20px 0 10px 0;
+            color: #1a1a1a;
+        }
+        
+        /* 段落 - 适中行高，清晰间距 */
+        p {
+            margin: 0 0 18px 0;
+            text-align: justify;
+            letter-spacing: 0.02em;
+        }
+        
+        /* 强调文本 - 加粗 */
+        strong {
+            font-weight: 700;
+            color: #000;
+        }
+        
+        /* 数字/金额 - 红色突出 */
+        .number, .amount {
+            color: #E53935;
+            font-weight: 600;
+        }
+        
+        /* 引用块 - 左侧竖线 */
+        blockquote {
+            border-left: 4px solid #ddd;
+            padding-left: 16px;
+            margin: 20px 0;
+            color: #666;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+        
+        /* 分隔线 - 简洁灰色 */
+        hr {
+            border: none;
+            border-top: 1px solid #e0e0e0;
+            margin: 25px 0;
+            height: 0;
+        }
+        
+        /* 图片 - 自适应宽度 */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        /* 代码/数字块 - 浅灰背景 */
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: "Monaco", "Menlo", "Consolas", monospace;
+            font-size: 14px;
+            color: #333;
+        }
+        
+        /* 重要提示框 - 黄色背景 */
+        .notice {
+            background-color: #FFF9E6;
+            border-left: 4px solid #FFB800;
+            padding: 12px 16px;
+            margin: 20px 0;
+            font-size: 15px;
+            color: #666;
+        }
+        
+        /* 数据表格 - 清晰简洁 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 15px;
+        }
+        
+        th {
+            background-color: #f5f5f5;
+            font-weight: 600;
+            padding: 10px 8px;
+            text-align: left;
+            border-bottom: 2px solid #e0e0e0;
+            color: #1a1a1a;
+        }
+        
+        td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #f0f0f0;
+            color: #333;
+        }
+        
+        /* 正数 - 绿色 */
+        .positive, .up {
+            color: #4CAF50;
+            font-weight: 600;
+        }
+        
+        /* 负数 - 红色 */
+        .negative, .down {
+            color: #E53935;
+            font-weight: 600;
+        }
+        
+        /* 微信公众号优化 */
+        .rich_media_content {
+            font-size: 16px;
+            line-height: 1.75;
+        }
+    </style>
+</head>
+<body>
+    <!-- 主标题 -->
+    <h1>{{TITLE}}</h1>
+    
+    <!-- 正文内容 -->
+    {{CONTENT}}
+    
+    <!-- 结尾 -->
+    <hr>
+    <p style="text-align: center; color: #999; font-size: 14px; margin-top: 30px;">
+        — 船长Talk —<br>
+        <span style="font-size: 13px;">数据分析 + 职场真相 + 投资洞察</span>
+    </p>
+</body>
+</html>

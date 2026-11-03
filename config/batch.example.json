@@ -1,0 +1,20 @@
+{
+  "date": "20260422",
+  "batch": "p4",
+  "articles": [
+    {
+      "id": "p4_1_AI50榜单",
+      "file": "article_sample.html",
+      "title": "2026福布斯AI50：两巨头占80%融资，普通人该用哪个？",
+      "digest": "福布斯2026年AI50榜单显示，OpenAI和Anthropic两家巨头融资2426亿美元，占总额79.4%。AI赛道赢家通吃已成现实，普通人该如何选择最适合自己的AI工具？",
+      "theme": "blue",
+      "theme_color": "#4776e6",
+      "mindmap": "examples/mindmap_sample.png",
+      "cover": "examples/cover_sample.png",
+      "cover_main": "AI50榜单",
+      "cover_sub": "两巨头占80%，你该怎么选",
+      "quote": "AI工具不会淘汰你，但会用AI工具的人会淘汰不会用的人",
+      "quote_author": "——你的作者名"
+    }
+  ]
+}

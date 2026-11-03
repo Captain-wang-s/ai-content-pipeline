@@ -1,0 +1,23 @@
+# ===== 凭据与登录态（严禁提交）=====
+config/wechat_config.json
+config/wechat_access_token.json
+config/wechat_login_state.json
+*.secret
+.env
+
+# ===== 运行时产物 =====
+mindmaps/
+covers/
+_archive/
+*.log
+__pycache__/
+*.pyc
+.DS_Store
+
+# ===== 素材大目录（生成产物不入库，样例见 examples/）=====
+# 每篇文章的脑图/封面 PNG 由脚本生成，发布后随草稿保存在微信素材库
+outputs/
+
+# ===== 编辑器 =====
+.vscode/
+.idea/
